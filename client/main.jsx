@@ -16,7 +16,7 @@ Meteor.startup(() => {
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/example" component={Example} />
-        <Route component={App} />
+        <Route component={Lost} />
       </Switch>
     </Router>
   ), document.getElementById('render-target'));
