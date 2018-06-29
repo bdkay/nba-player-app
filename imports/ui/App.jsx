@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
+import { List } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
 
 // Our components
 import TeamList from './Team-List';
@@ -58,6 +60,19 @@ export default class App extends Component {
       }
     ]
   }
+
+  // Get players and map them to the component
+  // Pass the entire player object so team-list has access to all its props
+  
+  renderPlayers(){
+    return this.getPlayers().map((player) => (
+      <TeamList key={player._id} player={player} />
+    ));
+  }
+
+  //List === ul's
+  //ListItem == ui's
+
   render(){
     return (
       <MuiThemeProvider>
@@ -70,8 +85,14 @@ export default class App extends Component {
           <br />
           <div className="row">
             <div className="col s12 m7"><Player /></div>
+            <div className="col s12 m5">
+              <Divider />
+              <List>
+                { this.renderPlayers() }
+              </List>
+              <Divider />
+            </div>
             <div className="col s12 m5"><TeamStats /></div>
-            <div className="col s12 m5"><TeamList /></div>
           </div>
         </div>
       </MuiThemeProvider>
