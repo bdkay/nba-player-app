@@ -40,6 +40,15 @@ export default class Player extends Component {
             </Chip>
             <Chip
               backgroundColor={red900}
+              style={styles.chip}
+            >
+              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+                7.8
+              </Avatar>
+              PER
+            </Chip>
+            <Chip
+              backgroundColor={red900}
               color={grey50}
               style={styles.chip}
             >
