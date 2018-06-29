@@ -11,8 +11,18 @@ import TeamStats from './Team-Stats';
 import Player from './Player';
 
 export default class App extends Component {
-  getPlayers(){
-    return [
+
+  // Use a constructor to set up state
+  constructor(props){
+    super(props);
+    // First set a state where players is empty,
+    this.state = { players: [] };
+  }
+
+   // ...and then set the new state with the following array of players
+
+  componentWillMount(){
+    this.setState({ players: [
       {
         _id: 1,
         name: "Kris Dunn",
@@ -58,14 +68,14 @@ export default class App extends Component {
         ast: 8,
         usg: 16
       }
-    ]
+    ]});
   }
 
   // Get players and map them to the component
   // Pass the entire player object so team-list has access to all its props
-  
+
   renderPlayers(){
-    return this.getPlayers().map((player) => (
+    return this.state.players.map((player) => (
       <TeamList key={player._id} player={player} />
     ));
   }
@@ -86,6 +96,7 @@ export default class App extends Component {
           <div className="row">
             <div className="col s12 m7"><Player /></div>
             <div className="col s12 m5">
+              <h2>Team List</h2>
               <Divider />
               <List>
                 { this.renderPlayers() }
