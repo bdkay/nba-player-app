@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import { grey900 } from 'material-ui/styles/colors';
 
 // Contain the data from the db, pass it onto the components
 import { createContainer } from 'meteor/react-meteor-data';
@@ -17,6 +18,7 @@ import { Players } from  '../api/players';
 import TeamList from './Team-List';
 import TeamStats from './Team-Stats';
 import Player from './Player';
+import AccountsWrapper from './AccountsWrapper';
 
 class App extends Component {
 
@@ -46,9 +48,11 @@ class App extends Component {
         <div className="container">
           <AppBar
             title="NBA Player App"
+            style={{backgroundColor: grey900}}
             iconClassNameRight="muidocs-icon-navigation-expand-more"
-            showMenuIconButton={false}
-          />
+            showMenuIconButton={false} >
+              <AccountsWrapper />
+          </AppBar>
           <br />
           <div className="row">
             <div className="col s12 m7"><Player /></div>
