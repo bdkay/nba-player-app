@@ -18,6 +18,7 @@ export default class App extends Component {
             iconClassNameRight="muidocs-icon-navigation-expand-more"
             showMenuIconButton={false}
           />
+          <br />
           <div className="row">
             <div className="col s12 m7"><Player /></div>
             <div className="col s12 m5"><TeamStats /></div>
