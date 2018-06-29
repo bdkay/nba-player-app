@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './main.html';
 
 import App from '../imports/ui/App';
 import New from '../imports/ui/New';

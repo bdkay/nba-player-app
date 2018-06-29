@@ -54,7 +54,6 @@ class App extends Component {
             <div className="col s12 m7"><Player /></div>
             <div className="col s12 m5">
               <h2>Team List</h2><Link to="/new" className="btn waves-effect waves-light">Add Player</Link>
-              <Divider />
               <List>
                 { this.renderPlayers() }
               </List>
