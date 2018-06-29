@@ -28,46 +28,47 @@ export default class Player extends Component {
           <img src="player.jpg" />
         </CardMedia>
         <CardText>
-          <Chip
-            backgroundColor={red900}
-            color={grey50}
-            style={styles.chip}
-          >
-            <Avatar size={32} color={grey50} backgroundColor={grey900}>
-              7.8
-            </Avatar>
-            PER
-          </Chip>
-          <Chip
-            backgroundColor={red900}
-            color={grey50}
-            style={styles.chip}
-          >
-            <Avatar size={32} color={grey50} backgroundColor={grey900}>
-              43
-            </Avatar>
-            TS%
-          </Chip>
-          <Chip
-            backgroundColor={red900}
-            color={grey50}
-            style={styles.chip}
-          >
-            <Avatar size={32} color={grey50} backgroundColor={grey900}>
-              21
-            </Avatar>
-            AST%
-          </Chip>
-          <Chip
-            backgroundColor={red900}
-            color={grey50}
-            style={styles.chip}
-          >
-            <Avatar size={32} color={grey50} backgroundColor={grey900}>
-              15
-            </Avatar>
-            USG%
-          </Chip>
+          <div style={styles.wrapper}>
+            <Chip
+              backgroundColor={red900}
+              style={styles.chip}
+            >
+              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+                7.8
+              </Avatar>
+              PER
+            </Chip>
+            <Chip
+              backgroundColor={red900}
+              color={grey50}
+              style={styles.chip}
+            >
+              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+                43
+              </Avatar>
+              TS%
+            </Chip>
+            <Chip
+              backgroundColor={red900}
+              color={grey50}
+              style={styles.chip}
+            >
+              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+                21
+              </Avatar>
+              AST%
+            </Chip>
+            <Chip
+              backgroundColor={red900}
+              color={grey50}
+              style={styles.chip}
+            >
+              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+                15
+              </Avatar>
+              USG%
+            </Chip>
+          </div>
         </CardText>
         <CardActions>
 
