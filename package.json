@@ -12,12 +12,12 @@
     "material-ui": "^0.20.1",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-tap-event-plugin": "^3.0.3"
   },
   "meteor": {
     "mainModule": {
-      "client": "client/main.js",
-      "server": "server/main.js"
+      "client": "client/main.jsx"
     },
     "testModule": "tests/main.js"
   }
