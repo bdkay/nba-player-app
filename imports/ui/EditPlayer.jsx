@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Players } from '../api/players';
 import { grey900 } from 'material-ui/styles/colors';
 
-class New extends Component {
-  submitPlayer(event) {
+export default class Edit extends Component {
+
+  showTeamStats(){
+    this.props.showTeamStats();
+  }
+
+  editPlayer(event){
     event.preventDefault();
 
     // Insert the new players into the database
     let player = {
+      _id: this.props.currentPlayer._id,
       name: this.refs.name.value,
       position: this.refs.position.value,
       ins: this.refs.ins.value,
@@ -21,33 +25,36 @@ class New extends Component {
       owner: Meteor.userId()
     };
 
-    Meteor.call('insertPlayer', player, (error) =>{
-      if(error) {
-        alert("Oops something went wrong: " + error.reason);
+    // Contacting client from server
+    Meteor.call('updatePlayer', player, (error) => {
+      if (error){
+        alert("Oops! Something went wrong: " + error.reason);
       } else {
-        alert("Player added");
-        this.props.history.push('/');
+        alert("Player updated!");
+
+        this.showTeamStats();
       }
     });
   }
+  render(){
+    const currentPlayer = this.props.currentPlayer;
 
-  render() {
     return (
       <div className="row">
-        <form className="col s12" onSubmit={this.submitPlayer.bind(this)}>
-          <h3>Add a New Player</h3>
+        <form className="col s12" onSubmit={ this.editPlayer.bind(this) } >
+          <h3>Edit a Player</h3>
           <div className="row">
             <div className="input-field s6">
-              <input placeholder="Name" ref="name" type="text" className="validate" />
+              <input placeholder="Name" ref="name" type="text" className="validate" defaultValue={currentPlayer.name} />
             </div>
             <div className="input-field s6">
-              <input placeholder="Position" ref="position" type="text" className="validate" />
+              <input placeholder="Position" ref="position" type="text" className="validate" defaultValue={currentPlayer.position} />
             </div>
           </div>
           <div className="row">
             <div className="col s6">
               <h5>INS</h5>
-              <select className="browser-default" ref="ins">
+              <select className="browser-default" ref="ins" defaultValue={currentPlayer.ins}>
                 <option value="20">20 - F</option>
                 <option value="40">40 - D</option>
                 <option value="60">60 - C</option>
@@ -57,7 +64,7 @@ class New extends Component {
             </div>
             <div className="col s6">
               <h5>MID</h5>
-              <select className="browser-default" ref="mid">
+              <select className="browser-default" ref="mid" defaultValue={currentPlayer.mid}>
                 <option value="20">20 - F</option>
                 <option value="40">40 - D</option>
                 <option value="60">60 - C</option>
@@ -67,7 +74,7 @@ class New extends Component {
             </div>
             <div className="col s6">
               <h5>3PT</h5>
-              <select className="browser-default" ref="threept">
+              <select className="browser-default" ref="threept" defaultValue={currentPlayer.threept}>
                 <option value="20">20 - F</option>
                 <option value="40">40 - D</option>
                 <option value="60">60 - C</option>
@@ -79,7 +86,7 @@ class New extends Component {
           <div className="row">
             <div className="col s6">
               <h5>INS D</h5>
-              <select className="browser-default" ref="insd">
+              <select className="browser-default" ref="insd" defaultValue={currentPlayer.insd}>
                 <option value="20">20 - F</option>
                 <option value="40">40 - D</option>
                 <option value="60">60 - C</option>
@@ -89,7 +96,7 @@ class New extends Component {
             </div>
             <div className="col s6">
               <h5>PER D</h5>
-              <select className="browser-default" ref="perd">
+              <select className="browser-default" ref="perd" defaultValue={currentPlayer.perd}> 
                 <option value="20">20 - F</option>
                 <option value="40">40 - D</option>
                 <option value="60">60 - C</option>
@@ -113,6 +120,3 @@ class New extends Component {
     )
   }
 }
-
-// Wrap with withRouter to push the new content to the main page
-export default withRouter(New);

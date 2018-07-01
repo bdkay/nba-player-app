@@ -17,11 +17,12 @@ Players.deny({
 
 const PlayerSchema = new SimpleSchema({
   name: { type: String },
-  overall: { type: Number, defaultValue: 0 },
-  per: { type: Number, defaultValue: 0 },
-  ts: { type: Number, defaultValue: 0 },
-  ast: { type: Number, defaultValue: 0 },
-  usg: { type: Number, defaultValue: 0 },
+  position: { type: String },
+  ins: { type: Number, defaultValue: 0 },
+  mid: { type: Number, defaultValue: 0 },
+  threept: { type: Number, defaultValue: 0 },
+  insd: { type: Number, defaultValue: 0 },
+  perd: { type: Number, defaultValue: 0 },
   notes: { type: String, optional: true },
   owner: { type: String, optional: true }
 });

@@ -11,7 +11,7 @@ import { grey900 } from 'material-ui/styles/colors';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 
-// database
+// Database
 import { Players } from  '../api/players';
 
 // Our components
@@ -19,17 +19,17 @@ import TeamList from './Team-List';
 import TeamStats from './Team-Stats';
 import Player from './Player';
 import AccountsWrapper from './AccountsWrapper';
+import Edit from './EditPlayer';
 
 // Insert the new players into the database
 const tempPlayer = {
   name: "Temp Player",
   position: "PF",
-  defense: 2,
-  ins: 5,
-  mid: 7,
-  threept: 8,
-  insd: 4,
-  perd: 4,
+  ins: 60,
+  mid: 40,
+  threept: 20,
+  insd: 40,
+  perd: 40,
   notes: "This player is only temporary"
 };
 
@@ -60,34 +60,30 @@ class App extends Component {
     ));
   }
 
-  updateCurrentPlayer(player){
+  updateCurrentPlayer(player) {
     this.setState({
-      currentPlayer: player
+      currentPlayer: player,
     });
   }
 
-  showEditForm(){
+  showEditForm() {
     this.setState({
-      showEditPlayer: true
+      showEditPlayer: true,
     });
   }
 
-  showTeamStats(){
+  showTeamStats() {
     this.setState({
-      showTeamStats: false
+      showEditPlayer: false,
     });
   }
 
   showForm(){
-    if(this.state.showEditPlayer == true){
-      return (
-        <Edit
-          currentPlayer={this.state.currentPlayer}
-          showTeamStats={this.showTeamStats}
-        />
-      );
+    if(this.state.showEditPlayer === true) {
+      return ( <Edit currentPlayer={this.state.currentPlayer}
+      showTeamStats={this.showTeamStats}/>);
     } else {
-      return( <TeamStats />);
+      return ( <TeamStats />);
     }
   }
 
@@ -107,7 +103,12 @@ class App extends Component {
           </AppBar>
           <br />
           <div className="row">
-            <div className="col s12 m7"><Player player={this.state.currentPlayer} showEditForm={this.showEditForm}/></div>
+            <div className="col s12 m7">
+              <Player
+                player={this.state.currentPlayer}
+                showEditForm={this.showEditForm}
+              />
+            </div>
             <div className="col s12 m5">
               <h2>Team List</h2><Link to="/new" className="btn waves-effect" style={ {backgroundColor: grey900} }>
               Add Player</Link>
@@ -135,7 +136,7 @@ export default createContainer(() => {
   // Subscribe to the collection published from the server, this is how we get data from Meteor with React
   Meteor.subscribe('players');
 
-  const user = Meteor.userId()
+  const user = Meteor.userId();
 
   return {
     players: Players.find({ owner: user }, { sort: { name: 1 }}).fetch()

@@ -31,8 +31,9 @@ export default class Player extends Component {
 
     // Calculate player stats
     const player = this.props.player;
-    const offense = player.ins + player.mid + player.threept;
-    const defense = player.insd + player.mid;
+    const position = player.position;
+    const offense = Math.round((player.ins + player.mid + player.threept) / 3);
+    const defense = Math.round((player.insd + player.mid) / 2);
     const total = offense + defense;
 
     return (
