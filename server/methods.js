@@ -13,7 +13,6 @@ Meteor.methods({
     Players.update(player._id,
     { $set: player});
   },
-
   deletePlayer(playerId) {
     Players.remove(playerId);
   }
