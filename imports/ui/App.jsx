@@ -23,11 +23,13 @@ import AccountsWrapper from './AccountsWrapper';
 // Insert the new players into the database
 const tempPlayer = {
   name: "Temp Player",
-  overall: 100,
-  per: 13,
-  ts: 5,
-  ast: 12,
-  usg: 8,
+  position: "PF",
+  defense: 2,
+  ins: 5,
+  mid: 7,
+  threept: 8,
+  insd: 4,
+  perd: 4,
   notes: "This player is only temporary"
 };
 
@@ -74,9 +76,10 @@ class App extends Component {
           </AppBar>
           <br />
           <div className="row">
-            <div className="col s12 m7"><Player /></div>
+            <div className="col s12 m7"><Player player={this.state.currentPlayer}/></div>
             <div className="col s12 m5">
-              <h2>Team List</h2><Link to="/new" className="btn waves-effect waves-light">Add Player</Link>
+              <h2>Team List</h2><Link to="/new" className="btn waves-effect" style={ {backgroundColor: grey900} }>
+              Add Player</Link>
               <List>
                 { this.renderPlayers() }
               </List>

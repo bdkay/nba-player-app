@@ -20,32 +20,31 @@ const styles = {
 
 export default class Player extends Component {
   render(){
+
+    // Calculate player stats
+    const player = this.props.player;
+    const offense = player.ins + player.mid + player.threept;
+    const defense = player.insd + player.mid;
+    const total = offense + defense;
+
     return (
       <Card>
         <CardMedia
-          overlay={<CardTitle title="Kris Dunn" subtitle="Offense: 79 - Defense: 71" />}
+          overlay={<CardTitle title={`${player.name} — ${player.position}`} subtitle={`Offense: ${offense} - Defense: ${defense} - Overall: ${total}`} />}
         >
           <img src="player.jpg" />
         </CardMedia>
         <CardText>
+          <h5>Offense</h5>
           <div style={styles.wrapper}>
             <Chip
               backgroundColor={red900}
               style={styles.chip}
             >
               <Avatar size={32} color={grey50} backgroundColor={grey900}>
-                7.8
+                {player.ins}
               </Avatar>
-              PER
-            </Chip>
-            <Chip
-              backgroundColor={red900}
-              style={styles.chip}
-            >
-              <Avatar size={32} color={grey50} backgroundColor={grey900}>
-                7.8
-              </Avatar>
-              PER
+              INS
             </Chip>
             <Chip
               backgroundColor={red900}
@@ -53,9 +52,9 @@ export default class Player extends Component {
               style={styles.chip}
             >
               <Avatar size={32} color={grey50} backgroundColor={grey900}>
-                43
+              {player.mid}
               </Avatar>
-              TS%
+              MID
             </Chip>
             <Chip
               backgroundColor={red900}
@@ -63,19 +62,30 @@ export default class Player extends Component {
               style={styles.chip}
             >
               <Avatar size={32} color={grey50} backgroundColor={grey900}>
-                21
+                {player.threept}
               </Avatar>
-              AST%
+              3 PT
             </Chip>
+          </div>
+          <h5>Defense</h5>
+          <div style={styles.wrapper}>
             <Chip
               backgroundColor={red900}
-              color={grey50}
               style={styles.chip}
             >
               <Avatar size={32} color={grey50} backgroundColor={grey900}>
-                15
+                {player.insd}
               </Avatar>
-              USG%
+              INS D
+            </Chip>
+            <Chip
+              backgroundColor={red900}
+              style={styles.chip}
+            >
+              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+                {player.perd}
+              </Avatar>
+              PER D
             </Chip>
           </div>
         </CardText>

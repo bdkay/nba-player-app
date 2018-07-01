@@ -1,0 +1,49 @@
+componentWillMount(){
+  this.setState({ players: [
+    {
+      _id: 1,
+      name: "Kris Dunn",
+      overall: 72,
+      per: 7.8,
+      ts: 43,
+      ast: 21,
+      usg: 15
+    },
+    {
+      _id: 2,
+      name: "Justin Holiday",
+      overall: 74,
+      per: 12.7,
+      ts: 55,
+      ast: 9,
+      usg: 17
+    },
+    {
+      _id: 3,
+      name: "Robin Lopez",
+      overall: 76,
+      per: 14.8,
+      ts: 51,
+      ast: 5,
+      usg: 16
+    },
+    {
+      _id: 4,
+      name: "Nikola Mirotic",
+      overall: 76,
+      per: 12,
+      ts: 51,
+      ast: 6,
+      usg: 19
+    },
+    {
+      _id: 5,
+      name: "Denzel Valentine",
+      overall: 68,
+      per: 6.2,
+      ts: 45,
+      ast: 8,
+      usg: 16
+    }
+  ]});
+}

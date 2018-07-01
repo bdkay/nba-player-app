@@ -3,6 +3,10 @@ body {
   font-family: sans-serif;
 }
 
+a.login-link-text {
+  color: #fff;
+}
+
 #login-buttons {
   padding-top: 12px;
   color: #fff;
