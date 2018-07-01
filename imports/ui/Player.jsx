@@ -3,7 +3,7 @@ import { Card, CardMedia, CardTitle, CardText, CardActions } from 'material-ui/C
 import RaisedButton from 'material-ui/RaisedButton';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
-import { grey900, grey50, red900 } from 'material-ui/styles/colors';
+import { grey900, grey600, grey50, red900 } from 'material-ui/styles/colors';
 
 const styles = {
   chip: {
@@ -14,11 +14,19 @@ const styles = {
     flexWrap: 'wrap',
   },
   button: {
-    margin: 12
+    marginLeft: 10,
+    marginBottom: 20,
+    border: "1px solid #000",
+    borderRadius: 16
   }
 }
 
 export default class Player extends Component {
+
+  showEditForm(){
+    this.props.showEditForm();
+  }
+
   render(){
 
     // Calculate player stats
@@ -90,7 +98,15 @@ export default class Player extends Component {
           </div>
         </CardText>
         <CardActions>
-
+          <RaisedButton
+            label="Edit player/stats"
+            variant="contained"
+            style={styles.button}
+            backgroundColor="#f2f2f2"
+            className="button waves-effect"
+            onClick={this.showEditForm.bind(this) }
+          >
+          </RaisedButton>
         </CardActions>
       </Card>
     )
