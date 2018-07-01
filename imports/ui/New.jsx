@@ -7,7 +7,7 @@ class New extends Component {
     event.preventDefault();
 
     // Insert the new players into the database
-    Players.insert({
+    let player = {
       name: this.refs.name.value,
       overall: this.refs.overall.value,
       per: this.refs.per.value,
@@ -16,12 +16,20 @@ class New extends Component {
       usg: this.refs.usg.value,
       notes: this.refs.notes.value,
       createdAt: new Date(),
-    });
+      owner: Meteor.userId()
+    };
 
-    console.log("Success player submitted!");
+    // Contacting client from server
+    Meteor.call('insertPlayer', player, (error) => {
+      if (error){
+        alert("Oops! Something went wrong: " + error.reason);
+      } else {
+        alert("Player added!");
+        // Push the result to the main page
+        this.props.history.push('/');
+      }
+    })
 
-    // Push the result to the main page
-    this.props.history.push('/');
   }
   render(){
     return(

@@ -82,8 +82,10 @@ export default createContainer(() => {
   // Subscribe to the collection published from the server, this is how we get data from Meteor with React
   Meteor.subscribe('players');
 
+  const user = Meteor.userId()
+
   return {
-    players: Players.find({}, { sort: { name: 1 }}).fetch()
+    players: Players.find({ owner: user }, { sort: { name: 1 }}).fetch()
   };
 
 }, App);
