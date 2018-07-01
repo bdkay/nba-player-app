@@ -3,11 +3,11 @@ import { Card, CardMedia, CardTitle, CardText, CardActions } from 'material-ui/C
 import RaisedButton from 'material-ui/RaisedButton';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
-import { grey900, grey600, grey50, red900 } from 'material-ui/styles/colors';
+import { red900, grey600, grey50, blue900 } from 'material-ui/styles/colors';
 
 const styles = {
   chip: {
-    margin: 4,
+    margin: 4
   },
   wrapper: {
     display: 'flex',
@@ -47,30 +47,31 @@ export default class Player extends Component {
           <h5>Offense</h5>
           <div style={styles.wrapper}>
             <Chip
-              backgroundColor={red900}
+              className="chip"
+              backgroundColor={blue900}
               style={styles.chip}
             >
-              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+              <Avatar size={32} color={grey50} backgroundColor={red900}>
                 {player.ins}
               </Avatar>
               INS
             </Chip>
             <Chip
-              backgroundColor={red900}
-              color={grey50}
+              className="chip"
+              backgroundColor={blue900}
               style={styles.chip}
             >
-              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+              <Avatar size={32} color={grey50} backgroundColor={red900}>
               {player.mid}
               </Avatar>
               MID
             </Chip>
             <Chip
-              backgroundColor={red900}
-              color={grey50}
+              className="chip"
+              backgroundColor={blue900}
               style={styles.chip}
             >
-              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+              <Avatar size={32} color={grey50} backgroundColor={red900}>
                 {player.threept}
               </Avatar>
               3 PT
@@ -79,19 +80,21 @@ export default class Player extends Component {
           <h5>Defense</h5>
           <div style={styles.wrapper}>
             <Chip
-              backgroundColor={red900}
+              className="chip"
+              backgroundColor={blue900}
               style={styles.chip}
             >
-              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+              <Avatar size={32} color={grey50} backgroundColor={red900}>
                 {player.insd}
               </Avatar>
               INS D
             </Chip>
             <Chip
-              backgroundColor={red900}
+              className="chip"
+              backgroundColor={blue900}
               style={styles.chip}
             >
-              <Avatar size={32} color={grey50} backgroundColor={grey900}>
+              <Avatar size={32} color={grey50} backgroundColor={red900}>
                 {player.perd}
               </Avatar>
               PER D

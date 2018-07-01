@@ -14,8 +14,6 @@ export default class TeamList extends Component {
     Meteor.call('deletePlayer', playerId, (error) =>{
       if(error) {
         alert("Oops something went wrong: " + error.reason);
-      } else {
-        console.log("player deleted");
       }
     });
   }

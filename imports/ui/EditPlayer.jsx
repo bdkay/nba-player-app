@@ -25,6 +25,7 @@ export default class Edit extends Component {
       owner: Meteor.userId()
     };
 
+
     // Contacting client from server
     Meteor.call('updatePlayer', player, (error) => {
       if (error){
@@ -96,7 +97,7 @@ export default class Edit extends Component {
             </div>
             <div className="col s6">
               <h5>PER D</h5>
-              <select className="browser-default" ref="perd" defaultValue={currentPlayer.perd}> 
+              <select className="browser-default" ref="perd" defaultValue={currentPlayer.perd}>
                 <option value="20">20 - F</option>
                 <option value="40">40 - D</option>
                 <option value="60">60 - C</option>

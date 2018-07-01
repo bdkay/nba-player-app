@@ -15,3 +15,7 @@ a.login-link-text {
 .container > span {
   padding-top: 25px;
 }
+
+.chip > span {
+  color: #fff !important;
+}
