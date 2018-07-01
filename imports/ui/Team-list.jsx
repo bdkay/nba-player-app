@@ -8,6 +8,7 @@ export default class TeamList extends Component {
       <ListItem
         primaryText={this.props.player.name}
         leftAvatar={<Avatar src="player.jpg" />}
+        onClick={this.updateCurrentPlayer}
       />
     )
   }

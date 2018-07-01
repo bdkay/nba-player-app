@@ -20,13 +20,26 @@ import TeamStats from './Team-Stats';
 import Player from './Player';
 import AccountsWrapper from './AccountsWrapper';
 
+// Insert the new players into the database
+const tempPlayer = {
+  name: "Temp Player",
+  overall: 100,
+  per: 13,
+  ts: 5,
+  ast: 12,
+  usg: 8,
+  notes: "This player is only temporary"
+};
+
 class App extends Component {
 
   // Use a constructor to set up state
   constructor(props){
     super(props);
-    // First set a state where players is empty,
-    this.state = { players: [] };
+
+    // setting up the state
+    this.state = { currentPlayer: tempPlayer };
+    this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this);
   }
 
   // Get players and map them to the component
@@ -35,8 +48,14 @@ class App extends Component {
   renderPlayers(){
     // Passing players as props instead of state now (from the container)
     return this.props.players.map((player) => (
-      <TeamList key={player._id} player={player} />
+      <TeamList key={player._id} player={player} updateCurrentPlayer={this.updateCurrentPlayer}/>
     ));
+  }
+
+  updateCurrentPlayer(player){
+    this.setState({
+      currentPlayer: player
+    });
   }
 
   //List === ul's
