@@ -5,11 +5,9 @@ import { ListItem } from 'material-ui/List';
 export default class TeamList extends Component {
 
   updateCurrentPlayer(player){
-    this.setState({
-      currentPlayer: player
-    });
+    this.props.updateCurrentPlayer(player);
   }
-  
+
   render(){
     return (
       <ListItem
