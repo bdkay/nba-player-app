@@ -39,7 +39,7 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    // setting up the state
+    // Setting up the state
     this.state = {
       currentPlayer: tempPlayer,
       showEditPlayer: false
@@ -115,9 +115,8 @@ class App extends Component {
               <List>
                 { this.renderPlayers() }
               </List>
-              <Divider />
             </div>
-            <div className="col s12 m12 l12">
+            <div className="col s12 m5 l5">
               <br />
               <Divider />
               { this.showForm() }
