@@ -45,13 +45,15 @@ class App extends Component {
       showEditPlayer: false
     };
 
+    // Binding "this" creates new function with explicitly defined "this"
+    // Now these functions have the defined instance as "this" no matter how the method/function is called.
+
     this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this);
     this.showEditForm = this.showEditForm.bind(this);
     this.showTeamStats = this.showTeamStats.bind(this);
   }
 
   // Get players and map them to the component
-  // Pass the entire player object so team-list has access to all its props
 
   renderPlayers(){
     // Passing players as props instead of state now (from the container)
