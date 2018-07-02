@@ -42,7 +42,7 @@ export default class TeamStats extends Component {
     const total = Math.round((ins + mid + threept + insd + perd + insd + perd) / 7);
 
     const data = {
-      labels: ['INS', 'MID', '3PT', 'INS D', 'PER D'],
+      labels: ['Inside Offense', 'Mid-Range Offense', '3PT', 'Inside D', 'Perimeter D'],
       datasets: [
         {
           label: 'Out of a possible 100',
@@ -78,13 +78,13 @@ export default class TeamStats extends Component {
           <br />
           <Divider />
           <br />
-          <h6>Team's Offense: <span className="styles.totalNumber.fontWeight">{offense}</span></h6>
-          <h6>Team's Defense: <span className="styles.totalNumber.fontWeight">{defense}</span></h6>
-          <h6>Team's Total: <span className="styles.totalNumber.fontWeight">{total}</span></h6>
+          <h6>Team's Offense:</h6> <h5> {offense} </h5>
+          <h6>Team's Defense:</h6> <h5> {defense} </h5>
+          <h6>Team's Total:</h6> <h5> {total} </h5>
           <br />
           <Divider />
           <br />
-          <h6>Number of Players: {numPlayers}</h6>
+          <h6>Number of Players:</h6> <h5>{numPlayers}</h5>
         </div>
       </div>
     )
