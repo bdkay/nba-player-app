@@ -21,7 +21,7 @@ import Player from './Player';
 import AccountsWrapper from './AccountsWrapper';
 import Edit from './EditPlayer';
 
-// Insert the new players into the database
+// Construct a tempPlayer
 const tempPlayer = {
   name: "Temp Player",
   position: "PF",
