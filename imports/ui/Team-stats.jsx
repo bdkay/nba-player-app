@@ -45,7 +45,7 @@ export default class TeamStats extends Component {
       labels: ['Inside Offense', 'Mid-Range Offense', '3PT', 'Inside D', 'Perimeter D'],
       datasets: [
         {
-          label: 'Out of a possible 100',
+          label: 'Score out of a possible 100',
           backgroundColor: 'rgba(179,181,198,0.2)',
           borderColor: 'rgba(179,181,198,1)',
           pointBackgroundColor: 'rgba(179,181,198,1)',
