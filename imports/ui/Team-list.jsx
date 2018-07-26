@@ -13,7 +13,7 @@ export default class TeamList extends Component {
   deletePlayer(playerId){
     Meteor.call('deletePlayer', playerId, (error) => {
       if(error) {
-        alert("Oops something went wrong: " + error.reason);
+        alert("Oops, something went wrong: " + error.reason);
       }
     });
   }

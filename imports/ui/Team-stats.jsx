@@ -78,9 +78,9 @@ export default class TeamStats extends Component {
           <br />
           <Divider />
           <br />
-          <h6>Team's Offense:</h6> <h5> {offense} </h5>
-          <h6>Team's Defense:</h6> <h5> {defense} </h5>
-          <h6>Team's Total:</h6> <h5> {total} </h5>
+          <h6>Team Offense:</h6> <h5> {offense} </h5>
+          <h6>Team Defense:</h6> <h5> {defense} </h5>
+          <h6>Team Total:</h6> <h5> {total} </h5>
           <br />
           <Divider />
           <br />
